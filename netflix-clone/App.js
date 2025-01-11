@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Footer from './ui/screens/components/footer';
+import Main from './ui/screens/main';
+import News from './ui/screens/news';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <NavigationContainer>
+      <Stack.Navigator headerMode="none">
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="News" component={News} />
+      </Stack.Navigator>
       <Footer></Footer>
-    </View>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
