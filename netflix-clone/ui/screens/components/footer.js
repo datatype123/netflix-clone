@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Dimensions,SafeAreaView} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,7 +9,7 @@ const { width, height } = Dimensions.get('screen');
 const Bottom_Navigation_Bar = () => {
     const navigation = useNavigation();
     return (
-      <View style={styles_bottom_navigation_bar.container}>
+      <SafeAreaView style={styles_bottom_navigation_bar.container}>
         <TouchableOpacity
           style={styles_bottom_navigation_bar.button}
           onPress={() => navigation.navigate('Main')}
@@ -31,38 +31,36 @@ const Bottom_Navigation_Bar = () => {
           <Feather name="user" size={30} color="black" style={styles_bottom_navigation_bar.icon} />
           <Text style={styles_bottom_navigation_bar.text}>User</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     );
   };
 
 const styles_bottom_navigation_bar = StyleSheet.create({
     container: {
         width: width,
-        height: height/7,
-        flexDirection: 'row', // Align buttons horizontally
-        justifyContent: 'space-between', // Space buttons evenly
-        alignItems: 'center', // Center vertically
-        backgroundColor: 'black', // Bottom navigation background color
-        // height: 50, // Height of the bottom navigation bar
-        paddingHorizontal: 10, // Horizontal padding for spacing
-        paddingVertical: 5, // Vertical padding for spacing
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: 'black',
+        paddingHorizontal: 10,
+        paddingVertical: 5,
     },
     button: {
-        flexDirection: 'row', // Align icon and text in a row
-        alignItems: 'center', // Center vertically
-        justifyContent: 'center', // Center horizontally
-        paddingHorizontal: 10, // Horizontal padding for spacing
-        paddingVertical: 5, // Vertical padding for spacing
-        marginHorizontal: 10, // Horizontal margin for spacing
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginHorizontal: 10,
     },
     icon: {
-        marginRight: 8, // Space between the icon and text
+        marginRight: 8,
         color:'white'
     },
     text: {
         fontSize: 14,
         color: 'white',
-        fontWeight: 'bold',// Uppercase text
+        fontWeight: 'bold',
     },
 });
   
@@ -80,7 +78,7 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <View style={{width:width,height:height/8,flexDirection:'row',justifyContent:'space-around',marginBottom:10,marginTop:10}}>
+            <View style={{width:width,height:height/10,flexDirection:'row',justifyContent:'space-around'}}>
                 <Bottom_Navigation_Bar />
             </View>
         );

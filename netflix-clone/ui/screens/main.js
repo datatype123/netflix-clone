@@ -1,18 +1,30 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text,ScrollView,Image,Dimensions,FlatList, SafeAreaView } from 'react-native';
+import Header from './components/header';
+import Poster from './components/poster';
+import List from './components/list';
 
 export default function Main() {
   return (
-    <View style={styles.container}>
-      <Text>Main Screen</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+        <Header/>
+        <ScrollView>
+          <Poster/>
+          <List/>
+        </ScrollView>
+    </SafeAreaView>
+    
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width:Dimensions.get('screen').width.toFixed(2),
+    // height:Dimensions.get('screen').height,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom:200,
+    backgroundColor: 'black',
   },
 });
